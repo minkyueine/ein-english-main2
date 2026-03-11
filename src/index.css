@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  html {
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #f8fafc;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Reduce 300ms tap delay on touch devices */
+  button, a, [role="button"] {
+    touch-action: manipulation;
+  }
+
+  /* Korean Typography Optimization */
+  body {
+    font-family: "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    background-color: #f8fafc;
+    min-height: 100vh;
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  /* Heading Standards */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    word-break: keep-all;
+    line-height: 1.3;
+  }
+
+  /* Body Text Standards */
+  p,
+  span,
+  div {
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    line-height: 1.6;
+  }
+}
+
+/* 전역 제목 크기 제한 (데스크톱에서도 과도하게 커지지 않도록) */
+h1 {
+  font-size: clamp(1.75rem, 5vw, 2.5rem) !important;
+}
+h2 {
+  font-size: clamp(1.5rem, 4.5vw, 2rem) !important;
+}
+
+/* Mobile Typography & Touch (<768px) */
+@media (max-width: 768px) {
+
+  /* Balanced Headline Wrapping */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  /* Fluid Typography with clamp() */
+  h1 {
+    font-size: clamp(1.5rem, 6vw, 2.5rem) !important;
+  }
+
+  h2 {
+    font-size: clamp(1.35rem, 5vw, 2rem) !important;
+  }
+
+  h3 {
+    font-size: clamp(1.2rem, 4.5vw, 1.75rem) !important;
+  }
+
+  h4 {
+    font-size: clamp(1.1rem, 4vw, 1.5rem) !important;
+  }
+
+  /* Body Text Padding */
+  section>div>p {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Section Spacing for Visual Rhythm */
+  section {
+    margin-bottom: 2.5rem;
+  }
+
+  /* Touch-friendly: main CTA buttons use .min-h-[44px] or py-4 in Tailwind */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Prevent zoom on input focus (iOS) */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* 375px 기준 소형 모바일: 가독성 최소 글자 크기 & 행간 */
+@media (max-width: 425px) {
+  body {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  /* 작은 글자도 12px 이상으로 */
+  .text-\[9px\],
+  .text-\[10px\],
+  .text-\[11px\] {
+    font-size: 0.75rem !important; /* 12px */
+    letter-spacing: 0.02em;
+  }
+
+  /* 본문·설명 텍스트 최소 14px */
+  p, .leading-relaxed {
+    font-size: clamp(0.875rem, 2.5vw, 1rem);
+    line-height: 1.7;
+  }
+
+  /* 소제목·라벨 밸런스 */
+  h2 {
+    font-size: clamp(1.25rem, 5vw, 1.5rem) !important;
+    line-height: 1.35;
+  }
+
+  h3 {
+    font-size: clamp(1.15rem, 4.5vw, 1.4rem) !important;
+  }
+}
+
+/* Safe area for notched devices (iPhone X+) */
+@supports (padding: env(safe-area-inset-bottom)) {
+  body {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Hide Scrollbar for Horizontal Scroll */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari, Opera */
+}
+
+/* Infinite Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee-fast {
+  animation: marquee 30s linear infinite;
+}
+
+.pause-marquee:hover {
+  animation-play-state: paused;
+}
