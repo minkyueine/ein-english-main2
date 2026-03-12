@@ -566,23 +566,10 @@ const App = () => {
                 >
                   무료체험신청하기 <ArrowRight size={22} strokeWidth={3} />
                 </button>
-                <p className="mt-3 w-full max-w-md text-slate-500 text-xs xs:text-sm font-bold text-center lg:text-left">
-                  *오늘 신청 시 첫 수업 무료 · 왕초보도 부담 없는 15분 테스트
-                </p>
               </div>
             </div>
           </div>
 
-          <div className="bg-white/90 backdrop-blur-sm border-2 border-orange-100 rounded-2xl py-4 px-5 md:py-5 md:px-8 mb-6 md:mb-8 shadow-lg inline-block w-full max-w-2xl">
-            <p className="text-slate-800 text-sm md:text-base font-black flex flex-col items-center justify-center gap-2 md:gap-2.5 leading-tight text-center">
-              <span className="flex items-center gap-2 text-orange-600"><Gift size={20} className="shrink-0" /> 15분 무료체험 + 강점 리포트</span>
-              <span className="text-slate-600 text-[11px] xs:text-xs md:text-sm font-medium flex flex-wrap justify-center items-center gap-1.5 xs:gap-2">
-                <span className="flex items-center gap-1"><CheckCircle size={14} className="text-emerald-500 shrink-0" /> 결제 정보 없이 100% 무료</span>
-                <span className="text-slate-300 hidden xs:inline">|</span>
-                <span className="flex items-center gap-1"><CheckCircle size={14} className="text-emerald-500 shrink-0" /> 신용카드 입력 없음</span>
-              </span>
-            </p>
-          </div>
         </div>
       </header>
 
